@@ -1,6 +1,11 @@
-// src/types/types.ts
 export interface Todo {
-    id: number;
-    text: string;
-    completed: boolean;
-  }
+  id: number;
+  text: string;
+  completed: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface TodoState {
+  todos: Todo[];
+}
