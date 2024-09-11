@@ -1,0 +1,10 @@
+Frontend (React TypeScript Redux)
+Refactor Redux Logic
+
+Example: Refactor existing Redux actions and reducers to use Redux Toolkit, improving code readability and reducing boilerplate.
+Enhance Component Performance
+
+Example: Optimize a performance-heavy React component by implementing React.memo or useMemo to prevent unnecessary re-renders.
+Implement Advanced UI Features
+
+Example: Integrate a complex UI feature such as a custom data table with sorting, filtering, and pagination capabilities, ensuring it's fully typed with TypeScript.
