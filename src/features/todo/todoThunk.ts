@@ -12,9 +12,9 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
     }
   );
 
-export const addTodo = createAsyncThunk('todos/addTodo', async () => {
+export const addTodo = createAsyncThunk('todos/addTodo', async (text: String) => {
     try {
-    const response = await axios.post<Todo[]>('http//localhost:8080/api/todos');
+    const response = await axios.post<Todo>('http://localhost:8080/api/todos', { text });
     return response.data;
     } catch (error){
         throw new Error(error instanceof Error ? error.message : "An unexpected error occured @ Add Todo Thunk");
@@ -23,7 +23,7 @@ export const addTodo = createAsyncThunk('todos/addTodo', async () => {
 
 export const deleteTodo = createAsyncThunk('todos/deleteTodo', async (id:number) => {
     try {
-    const response = await axios.delete<Todo[]>(`http//localhost:8080/api/todos/${id}`);
+    const response = await axios.delete<Todo[]>(`http://localhost:8080/api/todos/${id}`);
     return response.data;
     } catch (error){
         throw new Error(error instanceof Error ? error.message : "Unexpected Error @ Delete Todo Thunk")
@@ -32,7 +32,7 @@ export const deleteTodo = createAsyncThunk('todos/deleteTodo', async (id:number)
 
 export const toggleTodo = createAsyncThunk('todos/ToggleTodo', async (id:number) => {
     try {
-    const response = await axios.delete<Todo[]>(`http//localhost:8080/api/todos/${id}`);
+    const response = await axios.delete<Todo[]>(`http://localhost:8080/api/todos/${id}`);
     return response.data;
     } catch (error){
         throw new Error(error instanceof Error ? error.message : "Unexpected Error @ Delete Todo Thunk")

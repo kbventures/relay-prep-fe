@@ -1,7 +1,7 @@
 // src/redux/slices/todosSlice.ts
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchTodos } from './todoThunk';
-import { TodosState } from '../../types/types'
+import { fetchTodos, addTodo } from './todoThunk';
+import { TodosState, Todo } from '../../types/types'
 
 
 // Initial state
@@ -25,6 +25,16 @@ const todosSlice = createSlice({
         state.todos = action.payload;
       })
       .addCase(fetchTodos.rejected, (state) => {
+        state.status = 'failed';
+      })
+      .addCase(addTodo.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(addTodo.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.todos.push(action.payload as Todo)
+      })
+      .addCase(addTodo.rejected, (state) => {
         state.status = 'failed';
       });
   },
