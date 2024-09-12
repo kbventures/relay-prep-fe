@@ -1,7 +1,6 @@
 // src/redux/slices/todosSlice.ts
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchTodos } from './todoThunk';
 // Define the type for a Todo item
 interface Todo {
   id: number;
@@ -24,10 +23,10 @@ const initialState: TodosState = {
 };
 
 // Async thunk to fetch todos from the server
-export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
-  const response = await axios.get<Todo[]>('http://localhost:8080/api/todos'); // Replace with your API endpoint
-  return response.data;
-});
+// export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
+//   const response = await axios.get<Todo[]>('http://localhost:8080/api/todos'); // Replace with your API endpoint
+//   return response.data;
+// });
 
 // Create the slice
 const todosSlice = createSlice({

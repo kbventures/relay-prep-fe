@@ -6,6 +6,8 @@ export interface Todo {
   updatedAt: string;
 }
 
-export interface TodoState {
+// Define the initial state type
+export interface TodosState {
   todos: Todo[];
+  status: 'idle' | 'loading' | 'failed';
 }

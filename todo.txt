@@ -8,3 +8,9 @@ Example: Optimize a performance-heavy React component by implementing React.memo
 Implement Advanced UI Features
 
 Example: Integrate a complex UI feature such as a custom data table with sorting, filtering, and pagination capabilities, ensuring it's fully typed with TypeScript.
+
+
+
+Setup ADD, Delete, Toggle
+Memoization
+Sorgin, Filtering & Pagination 

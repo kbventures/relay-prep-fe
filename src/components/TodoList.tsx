@@ -1,13 +1,14 @@
 // src/components/TodoList.tsx
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "../app/store";
-import { fetchTodos } from "../features/todo/todoSlice";
+import { AppDispatch } from "../app/store";
+import { fetchTodos } from "../features/todo/todoThunk";
+import { selectTodos, selectStatus } from "../features/todo/todoSelectors";
 
 const TodoList: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
-  const todos = useSelector((state: RootState) => state.todos.todos);
-  const status = useSelector((state: RootState) => state.todos.status);
+  const todos = useSelector(selectTodos);
+  const status = useSelector(selectStatus);
 
   useEffect(() => {
     dispatch(fetchTodos());
