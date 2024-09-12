@@ -23,8 +23,8 @@ export const addTodo = createAsyncThunk('todos/addTodo', async (text: String) =>
 
 export const deleteTodo = createAsyncThunk('todos/deleteTodo', async (id:number) => {
     try {
-    const response = await axios.delete<Todo[]>(`http://localhost:8080/api/todos/${id}`);
-    return response.data;
+      await axios.delete(`http://localhost:8080/api/todos/${id}`);
+    return id;
     } catch (error){
         throw new Error(error instanceof Error ? error.message : "Unexpected Error @ Delete Todo Thunk")
     }

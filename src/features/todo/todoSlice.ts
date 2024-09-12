@@ -1,6 +1,6 @@
 // src/redux/slices/todosSlice.ts
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchTodos, addTodo } from './todoThunk';
+import { fetchTodos, addTodo, deleteTodo } from './todoThunk';
 import { TodosState, Todo } from '../../types/types'
 
 
@@ -35,6 +35,17 @@ const todosSlice = createSlice({
         state.todos.push(action.payload as Todo)
       })
       .addCase(addTodo.rejected, (state) => {
+        state.status = 'failed';
+      })
+      .addCase(deleteTodo.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(deleteTodo.fulfilled, (state, action) => {
+        const idToDelete = action.payload; 
+        state.status = 'idle';
+        state.todos = state.todos.filter(todo => todo.id !== idToDelete);
+      })
+      .addCase(deleteTodo.rejected, (state) => {
         state.status = 'failed';
       });
   },
