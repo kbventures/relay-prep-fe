@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchTodos } from './todoThunk';
 import { TodosState } from '../../types/types'
 
+
 // Initial state
 const initialState: TodosState = {
   todos: [],
